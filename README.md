@@ -61,6 +61,10 @@ heroku.apps.update('my-new-app', { name: 'my-new-app-renamed' }, function(err, a
   console.log(app);
 });
 
+heroku.apps.delete('my-new-app-renamed', function(err, app) {
+  console.log(app);
+});
+
 // Processes
 heroku.apps.ps('my-app', function(err, processes) {
   console.log(processes);
