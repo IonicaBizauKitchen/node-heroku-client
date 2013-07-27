@@ -57,6 +57,10 @@ heroku.apps.create({ name: 'my-new-app' }, function(err, app) {
   console.log(app);
 });
 
+heroku.apps.update('my-new-app', { name: 'my-new-app-renamed' }, function(err, app) {
+  console.log(app);
+});
+
 // Processes
 heroku.apps.ps('my-app', function(err, processes) {
   console.log(processes);
