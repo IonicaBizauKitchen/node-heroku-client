@@ -134,25 +134,18 @@ module.exports = foo;
 // `foo` will handle both /foo and /foo/:id
 // It will also have our additional `bar` function
 // as a property.
-function foo(id, options, callback) {
+function foo(id, callback) {
   if (typeof id === 'string') {
-    return this.request('/apps/' + id, options, callback);
+    return this.request('/apps/' + id, callback);
   } else {
-    callback = options
-    options = id
-
-    return this.request('/apps', options, callback);
+    callback = id;
+    return this.request('/apps', callback);
   }
 }
 
 // Define our additional `bar` function
-foo.bar = function(id, options, callback) {
-  if (typeof options === 'function') {
-    callback = options;
-    options = {};
-  }
-
-  return this.request('/foo/' + id + '/bar', options, callback);
+foo.bar = function(id, callback) {
+  return this.request('/foo/' + id + '/bar', callback);
 };
 ```
 
