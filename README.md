@@ -53,6 +53,10 @@ heroku.apps('my-app', function(err, app) {
   console.log(app);
 });
 
+heroku.apps.create({ name: 'my-new-app' }, function(err, app) {
+  console.log(app);
+});
+
 // Processes
 heroku.apps.ps('my-app', function(err, processes) {
   console.log(processes);
